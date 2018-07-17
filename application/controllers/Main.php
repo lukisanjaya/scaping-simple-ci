@@ -46,6 +46,10 @@ class Main extends CI_Controller {
             if(isset($a) && $a->text != '') :
                 $data['negara'][] = $a->text;
             endif;
+            $flag = $dom->find('img.thumbborder')[0];
+            if(isset($flag) && $flag->src != '') :
+                $data['flag'][] = $flag->src;
+            endif;
             $span = $dom->find('th[scope=row] span')[0];
             if(isset($span) && $span->text != '') :
                 $data['kode'][] = $span->text;
@@ -71,6 +75,7 @@ class Main extends CI_Controller {
         foreach ($data['negara'] as $key => $value) {
             $json[] = [
                 'kode'     => $data['kode'][$key],
+                'flag'     => $data['flag'][$key],
                 'negara'   => $value,
                 'emas'     => $data['emas'][$key],
                 'perak'    => $data['perak'][$key],
