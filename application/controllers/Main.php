@@ -33,7 +33,7 @@ class Main extends CI_Controller {
         fclose($fp); 
     }
 
-    public function asian()
+    public function asiangames()
     {
         $dom  = new Dom;
         $url  = $dom->loadFromUrl('https://id.wikipedia.org/wiki/Tabel_perolehan_medali_Olimpiade_Musim_Panas_2016');
